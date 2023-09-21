@@ -21,19 +21,27 @@ public class Mascota {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Ingresa nombre de la mascota> ");
-        String nombre = sc.nextLine();
-
+        String nombre = "";
+        try {
+            while (true) {
+                nombre = sc.nextLine();
+                if (nombre.length() > 0) {
+                    break;
+                } else {
+                    System.out.println("Opción no valida, nombre debe ser mayor a 0");
+                }
+            }
+        } catch (Exception e) {
+        }
         System.out.println("Ingresa fecha de nacimiento> (FORMATO DIA/MES/AÑO)");
         String fecha = "";
-        
-
         try {
             while (true) {
                 fecha = sc.nextLine();
-                if (fecha.length() != 10) {
+                if (fecha.length() == 10) {
                     break;
                 } else {
-                    System.out.println("Opcion no valida, debe ser en formato DD/MM/YYYY (ej: 14/04/2001");
+                    System.out.println("Opcion no valida, debe ser en formato DD/MM/YYYY (ej: 14/04/2001)");
                 }
 
             }
@@ -44,15 +52,28 @@ public class Mascota {
 
         System.out.println("Ingresa nombre de dueño/a> ");
         String dueno = sc.nextLine();
+        
+        
+        System.out.println("Ingresa numero de chip (16 digitos)> ");
+        String chip1 = "";
         int chip = 0;
         try {
-            System.out.println("Ingresa numero de chip (16 digitos)> ");
-            chip = sc.nextInt();
+            while (true) {
+                chip1 = sc.nextLine();
+                if (chip1.length() == 16) {
+                    chip = Integer.parseInt(chip1);
+                    break;
+                } else {
+                    System.out.println("Opcion no valida, el n° de chip debe tener 16 digitos");
+                }
+
+            }
+
         } catch (Exception e) {
-            System.out.println("Debes ingresar una opción válida");
-            sc.nextLine();
 
         }
+
+        
 
         System.out.println("Mascota creada con éxito!");
 

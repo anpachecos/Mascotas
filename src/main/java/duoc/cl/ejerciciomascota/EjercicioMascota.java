@@ -38,7 +38,7 @@ public class EjercicioMascota {
                     System.out.println("Ingrese opción: ");
                     int opcion3 = sc.nextInt();
 
-                    if (opcion3 < 1 || opcion3 > listaMascotas.size()) {
+                    if (opcion3 + 1 < 1 || opcion3 - 1 > listaMascotas.size()) {
                         System.out.println("Opcion Invalida");
                     } else {
 
@@ -49,7 +49,8 @@ public class EjercicioMascota {
                                 + " \n2) Fecha de Nacimiento"
                                 + " \n3) Numero de chip"
                                 + " \n4)Nombre dueño/a \n"
-                                + "5)Volver al menu principal");
+                                + " 5)Eliminar Mascota \n"
+                                + "6)Volver al menu principal");
                         int opcion2 = sc.nextInt();
 
                         boolean salir2 = false;
@@ -75,6 +76,11 @@ public class EjercicioMascota {
                                 mascotaSeleccionada.setChip(nuevoChip);
                                 break;
                             case 5:
+                                Mascota eliminarMascota = listaMascotas.get(opcion3 - 1);
+                                listaMascotas.remove(eliminarMascota);
+                                System.out.println("Mascota eliminada con éxito!1");
+                                break;
+                            case 6:
                                 salir2 = true;
                             default:
                                 System.out.println("Opcion no valida");
@@ -83,9 +89,10 @@ public class EjercicioMascota {
                     }
 
                 case 3:
-                     for (Mascota mas : listaMascotas) {
-                        System.out.println(listaMascotas.indexOf(mas) + 1 + ") Mascota: " + mas.getNombre() + " Dueno: " + mas.getDueno() + " Fecha de Nacimiento: " + mas.getFecha() + "Numero de Chip: " + mas.getChip());
+                    for (Mascota mas : listaMascotas) {
+                        System.out.println(listaMascotas.indexOf(mas) + 1 + ") Mascota: " + mas.getNombre() + " Dueno: " + mas.getDueno() + " Fecha de Nacimiento: " + mas.getFecha() + " Numero de Chip: " + mas.getChip());
                     }
+                    //aqui hay algo mal porque no me arroja el chip
                     break;
                 case 4:
                     salir = true;
