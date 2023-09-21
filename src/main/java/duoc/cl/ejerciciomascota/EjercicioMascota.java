@@ -27,12 +27,16 @@ public class EjercicioMascota {
                 case 1:
                     listaMascotas.add(crearMascota());
                     break;
-                case 2:
+                case 2:                                       
+                    
+                    // Puedo escribir la lista, obtener el indice y usar los métodos asociados al objeto
+                    //listaMascotas.get(3).set;
+                    
                     System.out.println("¿Qué mascota quieres modificar?");
 
                     for (Mascota mas : listaMascotas) {
 
-                        System.out.println(listaMascotas.indexOf(mas) + 1 + ") Mascota: " + mas.getNombre() + " Dueno: " + mas.getDueno());
+                        System.out.println(listaMascotas.indexOf(mas) + 1 + ") Mascota: " + mas.getNombre() + " Dueño/a: " + mas.getDueno());
 
                     }
                     System.out.println("Ingrese opción: ");
@@ -48,8 +52,8 @@ public class EjercicioMascota {
                         System.out.println("1) Nombre Mascota"
                                 + " \n2) Fecha de Nacimiento"
                                 + " \n3) Numero de chip"
-                                + " \n4)Nombre dueño/a \n"
-                                + " 5)Eliminar Mascota \n"
+                                + " \n4)Nombre dueño/a\n"
+                                + " 5)Eliminar Mascota\n"
                                 + "6)Volver al menu principal");
                         int opcion2 = sc.nextInt();
 
@@ -78,7 +82,7 @@ public class EjercicioMascota {
                             case 5:
                                 Mascota eliminarMascota = listaMascotas.get(opcion3 - 1);
                                 listaMascotas.remove(eliminarMascota);
-                                System.out.println("Mascota eliminada con éxito!1");
+                                System.out.println("Mascota eliminada con éxito!");
                                 break;
                             case 6:
                                 salir2 = true;
@@ -89,9 +93,18 @@ public class EjercicioMascota {
                     }
 
                 case 3:
-                    for (Mascota mas : listaMascotas) {
-                        System.out.println(listaMascotas.indexOf(mas) + 1 + ") Mascota: " + mas.getNombre() + " Dueno: " + mas.getDueno() + " Fecha de Nacimiento: " + mas.getFecha() + " Numero de Chip: " + mas.getChip());
+
+                    if (listaMascotas.isEmpty()) {
+                        System.out.println("No hay mascotas registradas");
+
+                    } else {
+
+                        for (Mascota mas : listaMascotas) {
+                            System.out.println(listaMascotas.indexOf(mas) + 1 + ") Mascota: " + mas.getNombre() + " Dueno: " + mas.getDueno() + " Fecha de Nacimiento: " + mas.getFecha() + " Numero de Chip: " + mas.getChip());
+
+                        }
                     }
+
                     //aqui hay algo mal porque no me arroja el chip
                     break;
                 case 4:

@@ -80,6 +80,13 @@ public class Mascota {
         return new Mascota(nombre, fecha, chip, dueno);
     }
 
+    public static void cambiarNombre(Mascota mascota, String nombre){
+    
+        mascota.setNombre(nombre);
+        System.out.println("Nombre cambiado!");
+    
+    }
+    
     public Mascota() {
     }
 
